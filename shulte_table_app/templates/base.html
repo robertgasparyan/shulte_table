@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{% block title %}{% endblock %}</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #FEDCBA; /* Light pink */
+            text-align: center; /* Center all content */
+        }
+
+        header, main, footer {
+            margin: 20px auto;
+            max-width: 600px; /* Center content within a maximum width */
+        }
+
+        header {
+            background-color: #FEDCBA; /* Light pink */
+            padding: 10px;
+        }
+
+        h1 {
+            color: #9C5A50; /* Dark brown */
+        }
+
+        main {
+            background-color: #FFFFFF; /* White */
+            padding: 20px;
+            border: 1px solid #9C5A50; /* Dark brown */
+            border-radius: 5px;
+        }
+
+        footer {
+            background-color: #FEDCBA; /* Light pink */
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Shulte Table Generator</h1>
+    </header>
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
+    <footer>
+        <p>&copy; 2023 Your Company</p>
+    </footer>
+
+
+</body>
+</html>

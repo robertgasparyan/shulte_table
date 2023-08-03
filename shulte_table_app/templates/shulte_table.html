@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Shulte Table Generator{% endblock %}
+
+{% block content %}
+<style>
+    /* Center the table on the page */
+    table {
+        display: flex;
+        justify-content: center;
+    }
+</style>
+
+<form method="post" id="generate-table-form">
+    {% csrf_token %}
+    <label for="id_size">Size (between 3 and 10):</label>
+    <input type="number" name="size" id="id_size" min="3" max="10" value="4" required>
+    <button type="submit">Generate Table</button>
+</form>
+
+
+
+{% if table_data %}
+    <h2>Generated Table ({{ form.cleaned_data.size }}x{{ form.cleaned_data.size }})</h2>
+    <table>
+        {% for row in table_data %}
+            <tr>
+                {% for cell in row %}
+                    <td>{{ cell }}</td>
+                {% endfor %}
+            </tr>
+        {% endfor %}
+    </table>
+{% endif %}
+
+{% endblock %}
